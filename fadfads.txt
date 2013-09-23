@@ -1,0 +1,6 @@
+5
+select customer.cust_id,first_name,last_name,billing_address,shipping_address,rentals.movie_id,title,photo,date_issued,due_date,date_returned from movie,rentals,customer,creditcard where (customer.cust_id=rentals.cust_id and rentals.movie_id=movie.movie_id and customer.cust_id=creditcard.cust_id and date_returned is null)
+
+
+6
+select customer.cust_id,first_name,last_name,billing_address,shipping_address,rentals.movie_id,title,photo,date_issued,due_date,date_returned from movie,rentals,customer,creditcard where (customer.cust_id=rentals.cust_id and rentals.movie_id=movie.movie_id and customer.cust_id=creditcard.cust_id and curdate()>due_date)
